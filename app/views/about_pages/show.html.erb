@@ -1,2 +1,4 @@
-<h1>AboutPages#show</h1>
-<p>Find me in app/views/about_pages/show.html.erb</p>
+<h1>About</h1>
+<h2><%= @about_page.about_title %></h2>
+<p><%= @about_page.about_text %></p>
+<p><%= image_tag(@about_page.image) %></p>
