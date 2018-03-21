@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
+  get 'products/show'
+
   get 'about_pages/about', to: 'about_pages#show'
   get 'about_pages/contact', to: 'about_pages#index'
 
