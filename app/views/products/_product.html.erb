@@ -1,0 +1,14 @@
+
+<span class="product">
+  <h2><%= product.name %></h2>
+  <p><%= product.description %></p>
+  <p>Category: <%= product.category.name %></p>
+  <p>Price: $<%= product.price %></p>
+  <% if product.on_sale %>
+    <p>ON SALE!</p>
+  <% end %>
+  <% if product.new %>
+    <p>NEW!</p>
+  <% end %>
+  <p><%= image_tag(product.image) %></p>
+</span>

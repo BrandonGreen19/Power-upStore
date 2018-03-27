@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'search', to: 'search#index', as: 'search'
+
   resources :products, only: [:index, :show]
 
   get 'about_pages/about', to: 'about_pages#show'

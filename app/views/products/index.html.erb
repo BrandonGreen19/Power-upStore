@@ -1,15 +1,16 @@
 <h1>Products Index</h1>
 
-<% @products.each do |product| %>
-  <h2><%= product.name %></h2>
-  <p><%= product.description %></p>
-  <p>Category: <%= product.category.name %></p>
-  <p>Price: $<%= product.price %></p>
-  <% if product.on_sale %>
-    <p>ON SALE!</p>
-  <% end %>
-  <% if product.new %>
-    <p>NEW!</p>
-  <% end %>
-  <p><%= image_tag(product.image) %></p>
+<%= form_tag(search_path, method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
 <% end %>
+
+<% @products.each do |product| %>
+  <div class="product">
+    <%= render @products %>
+  </div>
+<% end %>
+
+
+
