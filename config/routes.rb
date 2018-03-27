@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'category', to: 'filter#index', as: 'filter'
+
   get 'search', to: 'search#index', as: 'search'
 
   resources :products, only: [:index, :show]
