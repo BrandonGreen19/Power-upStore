@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'category', to: 'filter#index', as: 'filter'
+  get 'category_filter', to: 'category_filter#index', as: 'category_filter'
 
   get 'search', to: 'search#index', as: 'search'
 

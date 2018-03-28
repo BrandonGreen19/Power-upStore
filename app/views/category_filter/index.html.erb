@@ -1,8 +1,8 @@
 <h1>Filtered Results</h1>
-<p>Found <%= @products.size %> <%= @filtered_category %> Power-ups</p>
+<p>Found <%= @products.size %> <%= @products.first.category.name %>  Power-ups</p>
 
 <% @products.each do |product| %>
   <div class="product">
-    <%= render @products %>
+    <%= render product %>
   </div>
 <% end %>

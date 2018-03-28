@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @search_terms = params[:q]
-    @products = Product.where("name LIKE '%#{@search_terms}%'")
+    @products = Product.where("name LIKE '%#{params[:q]}%'")
+    @params = params
   end
 end

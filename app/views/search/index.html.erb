@@ -1,8 +1,17 @@
-<h1>Search Results</h1>
-<p>Found <%= @products.size %> Power-ups matching "<%= @search_terms %>"</p>
+<%= filtered_products = @products %>
+<% if params[:new] %>
+  <%= filtered_products = filtered_products.where(new: true) %>
+  <%= puts "new" %>
+<% end %>
+<% if params[:on_sale] %>
+  <%= filtered_products = filtered_products.where(on_sale: true) %>
+<% end %>
 
-<% @products.each do |product| %>
+<h1>Search Results</h1>
+<p>Found <%= @products.size %> Power-ups matching "<%= @params[:q] %>"</p>
+
+<% filtered_products.each do |product| %>
   <div class="product">
-    <%= render @products %>
+    <%= render product %>
   </div>
 <% end %>
