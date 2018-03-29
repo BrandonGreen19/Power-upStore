@@ -1,14 +1,19 @@
 
-<span class="product">
-  <h2><%= product.name %></h2>
-  <p><%= product.description %></p>
-  <p>Category: <%= product.category.name %></p>
-  <p>Price: $<%= product.price %></p>
-  <% if product.on_sale %>
-    <p>ON SALE!</p>
-  <% end %>
-  <% if product.new %>
-    <p>NEW!</p>
-  <% end %>
-  <p><%= image_tag(product.image) %></p>
-</span>
+    <div class="col-sm-2 well">
+      <div class="well">
+        <p><a href="#"><%= product.name %></a></p>
+        <p><%= image_tag(product.image) %></p>
+      </div>
+      <div class="well">
+        <p><a href="#">Tags:</a></p>
+        <p>
+          <span class="label label-info"><%= product.category.name %></span>
+          <% if product.on_sale %>
+          <span class="label label-danger">ON SALE!</span>
+        <% end %>
+        <% if product.new %>
+          <span class="label label-warning">NEW!</span>
+        <% end %>
+        </p>
+      </div>
+    </div>

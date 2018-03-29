@@ -1,36 +1,47 @@
 <h1>Products Index</h1>
+<div class="col-sm-4 left">
+  <div>
+    <%= form_tag(search_path, method: "get") do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= submit_tag("Search") %>
+      <br>
+      <%= check_box_tag(:new) %>
+      <%= label_tag(:new, "Only New Items") %>
+      <%= check_box_tag(:on_sale) %>
+      <%= label_tag(:on_sale, "Only On-Sale Items") %>
 
-<%= form_tag(search_path, method: "get") do %>
-  <%= check_box_tag(:new) %>
-  <%= label_tag(:new, "Only New Items") %>
-  <%= check_box_tag(:on_sale) %>
-  <%= label_tag(:on_sale, "Only On-Sale Items") %>
-  <br>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-
-
-  <%= submit_tag("Search") %>
-
-<% end %>
-
-<%= form_tag(category_filter_path, method: "get") do %>
-
-  <% @categories.each do |category| %>
-    <%= radio_button_tag(:q, category.id) %>
-    <%= label_tag(:q, category.name) %>
-  <% end %>
-
-  <%= submit_tag("Filter") %>
-<% end %>
-
-
-
-<% @products.each do |product| %>
-  <div class="product">
-    <%= render product %>
+    <% end %>
   </div>
-<% end %>
+</div>
+<div class="col-sm-4 left">
+  <div>
+    <%= form_tag(category_filter_path, method: "get") do %>
 
+      <% @categories.each do |category| %>
+        <%= radio_button_tag(:q, category.id) %>
+        <%= label_tag(:q, category.name) %>
+      <% end %>
+
+      <%= submit_tag("Filter") %>
+    <% end %>
+  </div>
+</div>
+<br>
+
+
+<div class="container text-center">
+  <div class="row">
+    <% i = 0 %>
+    <% @products.each do |product| %>
+      <% if i % 5 == 0 %>
+        </div>
+        <div class="row">
+      <% end %>
+      <% i = i + 1 %>
+      <%= render product %>
+    <% end %>
+  </div>
+</div>
 
 
