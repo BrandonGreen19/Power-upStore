@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180321030401) do
+ActiveRecord::Schema.define(version: 20180403175214) do
 
   create_table "about_pages", force: :cascade do |t|
     t.string "about_title"
@@ -61,6 +61,19 @@ ActiveRecord::Schema.define(version: 20180321030401) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "customers", force: :cascade do |t|
+    t.string "user_name"
+    t.string "email"
+    t.string "password"
+    t.string "company"
+    t.string "address"
+    t.string "city"
+    t.integer "province_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["province_id"], name: "index_customers_on_province_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.decimal "price"
@@ -72,6 +85,13 @@ ActiveRecord::Schema.define(version: 20180321030401) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_products_on_category_id"
+  end
+
+  create_table "provinces", force: :cascade do |t|
+    t.string "name"
+    t.decimal "tax_rate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
