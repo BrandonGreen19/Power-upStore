@@ -1,11 +1,11 @@
 
     <div class="col-sm-2 well">
       <div class="well">
-        <p><a href="#"><%= product.name %></a></p>
+        <p><%= link_to "#{product.name}", product_path(product) %></p>
         <p><%= image_tag(product.image) %></p>
       </div>
       <div class="well">
-        <p><a href="#">Tags:</a></p>
+        <p>$ <%= product.price %></p>
         <p>
           <span class="label label-info"><%= product.category.name %></span>
           <% if product.on_sale %>
