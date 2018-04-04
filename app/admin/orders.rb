@@ -11,7 +11,7 @@ form do |f|
   f.inputs "Order" do
     f.input :date
     f.input :tax_rate
-    f.input :customer
+
     f.has_many :product_orders, allow_destroy: true do |n_f|
       n_f.input :product
     end
