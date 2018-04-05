@@ -1,7 +1,6 @@
 <%= filtered_products = @products %>
 <% if params[:new] %>
   <%= filtered_products = filtered_products.where(new: true) %>
-  <%= puts "new" %>
 <% end %>
 <% if params[:on_sale] %>
   <%= filtered_products = filtered_products.where(on_sale: true) %>
@@ -10,8 +9,13 @@
 <h1>Search Results</h1>
 <p>Found <%= @products.size %> Power-ups matching "<%= @params[:q] %>"</p>
 
-<% filtered_products.each do |product| %>
-  <div class="product">
-    <%= render product %>
+<div class="container" >
+  <div class="row">
+  <% filtered_products.each do |product| %>
+      <%= render product %>
+  <% end %>
   </div>
-<% end %>
+    <footer class="container-fluid text-center">
+      <p><%= paginate @products %></p>
+    </footer>
+</div>

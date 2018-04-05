@@ -1,8 +1,12 @@
 <h1>Filtered Results</h1>
 <p>Found <%= @products.size %> <%= @products.first.category.name %>  Power-ups</p>
 
-<% @products.each do |product| %>
-  <div class="product">
-    <%= render product %>
+<div class="container" >
+  <div class="row">
+    <%= render @products %>
   </div>
-<% end %>
+
+  <footer class="container-fluid text-center">
+    <p><%= paginate @products %></p>
+  </footer>
+</div>

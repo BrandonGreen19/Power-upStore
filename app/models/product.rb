@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  validates :name, :price, :image, :new, :on_sale, :description, presence: true
   belongs_to :category
   mount_uploader :image, ImageUploader
 

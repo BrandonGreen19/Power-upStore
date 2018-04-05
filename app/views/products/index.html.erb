@@ -27,21 +27,16 @@
     <% end %>
   </div>
 </div>
-<br>
+<br><br><br>
 
 
-<div class="container text-center">
+<div class="container" >
   <div class="row">
-    <% i = 0 %>
-    <% @products.each do |product| %>
-      <% if i % 5 == 0 %>
-        </div>
-        <div class="row">
-      <% end %>
-      <% i = i + 1 %>
-      <%= render product %>
-    <% end %>
+      <%= render @products %>
   </div>
-</div>
 
+  <footer class="container-fluid text-center">
+    <p><%= paginate @products %></p>
+  </footer>
+</div>
 
