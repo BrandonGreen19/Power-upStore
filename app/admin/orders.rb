@@ -18,6 +18,10 @@ form do |f|
     #   customer_form.input :user_name
     # end
 
+    row :categories do |board_game|
+      board_game.categories.map {|c| c.name }.join(", ").html_safe
+    end
+
 
     f.has_many :product_orders, allow_destroy: true do |n_f|
       n_f.input :product

@@ -36,6 +36,7 @@ gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'carrierwave'
 gem 'devise'
+gem 'kaminari'
 gem 'rubocop'
 
 group :development, :test do
